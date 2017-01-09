@@ -15,8 +15,8 @@ namespace ProjectManagerBL.Email
         private IList<System.Net.Mail.MailMessage> mails;
 
         private readonly string EmailHost = "smtp.gmail.com";
-        private readonly string EmailUsername = "jedfletcher1@gmail.com";
-        private readonly string EmailPassword = "57738703";
+        private readonly string EmailUsername = "";
+        private readonly string EmailPassword = "";
         private readonly int EmailPort = 465;
 
         public static readonly string EmailSystem = "jedfletcher1@gmail.com";
