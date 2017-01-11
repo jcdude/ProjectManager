@@ -17,16 +17,22 @@ namespace ProjectManagerDAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Folder()
         {
+            this.LinkFolderToProjects = new HashSet<LinkFolderToProject>();
             this.LinkFolderToTasks = new HashSet<LinkFolderToTask>();
+            this.LinkProjectToFolders = new HashSet<LinkProjectToFolder>();
             this.LinkUserToFolders = new HashSet<LinkUserToFolder>();
         }
     
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LinkFolderToProject> LinkFolderToProjects { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LinkFolderToTask> LinkFolderToTasks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LinkProjectToFolder> LinkProjectToFolders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LinkUserToFolder> LinkUserToFolders { get; set; }
     }

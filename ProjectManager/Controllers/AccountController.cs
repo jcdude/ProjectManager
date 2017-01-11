@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ProjectManager.Models;
+using ProjectManagerDAL.Entities;
+using System.Collections.Generic;
 
 namespace ProjectManager.Controllers
 {
@@ -415,6 +417,34 @@ namespace ProjectManager.Controllers
         public ActionResult ExternalLoginFailure()
         {
             return View();
+        }
+
+        //
+        // GET: /Account/ManageUsers
+        [Authorize(Roles = "AccountHolder,Admin")]
+        public ActionResult ManageUsers()
+        {
+            var model = new ManageUsersViewModel();
+
+            model.users = new AccountModels().getAllUsers();
+
+            return View(model);
+        }
+
+        //
+        // POST: /Account/ForgotPassword
+        [HttpPost]
+        [Authorize(Roles = "AccountHolder,Admin")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUser(List<AspNetUser> model)
+        {
+            if (ModelState.IsValid)
+            {
+               
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
         }
 
         protected override void Dispose(bool disposing)

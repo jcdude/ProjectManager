@@ -14,9 +14,9 @@ namespace ProjectManagerDAL.Entities
     
     public partial class LinkUserToFolder
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string UserId { get; set; }
-        public string FolderId { get; set; }
+        public int FolderId { get; set; }
         public string DateCreated { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }

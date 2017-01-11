@@ -130,4 +130,16 @@ namespace ProjectManager.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+
+    public class ManageUsersViewModel
+    {
+        public List<ManagerUserListItem> users { get; set; }
+    }
+
+    public class ManagerUserListItem
+    {
+        public string Id { get; set; }
+        public string FullName { get; set; }
+    }
 }

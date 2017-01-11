@@ -72,7 +72,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Hex" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
@@ -93,51 +93,69 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" />
           <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LinkFolderToProject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FolderId" Type="int" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="LinkFolderToTask">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="FolderId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="TaskId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FolderId" Type="int" Nullable="false" />
+          <Property Name="TaskId" Type="int" Nullable="false" />
           <Property Name="DateCreated" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LinkProjectToFolder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="FolderId" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="LinkProjectToTask">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ProjectId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="TaskId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="TaskId" Type="int" Nullable="false" />
           <Property Name="DateCreated" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="LinkUserToFolder">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="FolderId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FolderId" Type="int" Nullable="false" />
           <Property Name="DateCreated" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="LinkUserToTask">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="TaskId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="TaskId" Type="int" Nullable="false" />
           <Property Name="DateCreated" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="Priority">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
         </EntityType>
@@ -145,9 +163,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ColorId" Type="nvarchar" MaxLength="128" />
+          <Property Name="ColorId" Type="int" />
           <Property Name="StartDate" Type="datetime" />
           <Property Name="EndDate" Type="datetime" />
           <Property Name="PriorityId" Type="nvarchar" MaxLength="128" />
@@ -156,11 +174,11 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Body" Type="text" />
           <Property Name="UserId" Type="nvarchar" MaxLength="128" />
-          <Property Name="WorkflowId" Type="nvarchar" MaxLength="128" />
+          <Property Name="WorkflowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateStart" Type="datetime" />
           <Property Name="DateEnd" Type="datetime" />
           <Property Name="ParentTaskId" Type="nvarchar" MaxLength="128" />
@@ -170,7 +188,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="AccountId" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
@@ -231,6 +249,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LinkFolderToProject_Folders">
+          <End Role="Folders" Type="Self.Folders" Multiplicity="1" />
+          <End Role="LinkFolderToProject" Type="Self.LinkFolderToProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkFolderToProject">
+              <PropertyRef Name="FolderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkFolderToProject_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="LinkFolderToProject" Type="Self.LinkFolderToProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkFolderToProject">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_LinkFolderToTask_Folders">
           <End Role="Folders" Type="Self.Folders" Multiplicity="1" />
           <End Role="LinkFolderToTask" Type="Self.LinkFolderToTask" Multiplicity="*" />
@@ -252,6 +294,30 @@
             </Principal>
             <Dependent Role="LinkFolderToTask">
               <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkProjectToFolder_Folders">
+          <End Role="Folders" Type="Self.Folders" Multiplicity="1" />
+          <End Role="LinkProjectToFolder" Type="Self.LinkProjectToFolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkProjectToFolder">
+              <PropertyRef Name="FolderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkProjectToFolder_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="LinkProjectToFolder" Type="Self.LinkProjectToFolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkProjectToFolder">
+              <PropertyRef Name="ProjectId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -349,7 +415,9 @@
           <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmailQueue" EntityType="Self.EmailQueue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Folders" EntityType="Self.Folders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LinkFolderToProject" EntityType="Self.LinkFolderToProject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LinkFolderToTask" EntityType="Self.LinkFolderToTask" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LinkProjectToFolder" EntityType="Self.LinkProjectToFolder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LinkProjectToTask" EntityType="Self.LinkProjectToTask" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LinkUserToFolder" EntityType="Self.LinkUserToFolder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LinkUserToTask" EntityType="Self.LinkUserToTask" Schema="dbo" store:Type="Tables" />
@@ -373,6 +441,14 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
+          <AssociationSet Name="FK_LinkFolderToProject_Folders" Association="Self.FK_LinkFolderToProject_Folders">
+            <End Role="Folders" EntitySet="Folders" />
+            <End Role="LinkFolderToProject" EntitySet="LinkFolderToProject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkFolderToProject_Projects" Association="Self.FK_LinkFolderToProject_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="LinkFolderToProject" EntitySet="LinkFolderToProject" />
+          </AssociationSet>
           <AssociationSet Name="FK_LinkFolderToTask_Folders" Association="Self.FK_LinkFolderToTask_Folders">
             <End Role="Folders" EntitySet="Folders" />
             <End Role="LinkFolderToTask" EntitySet="LinkFolderToTask" />
@@ -380,6 +456,14 @@
           <AssociationSet Name="FK_LinkFolderToTask_Tasks" Association="Self.FK_LinkFolderToTask_Tasks">
             <End Role="Tasks" EntitySet="Tasks" />
             <End Role="LinkFolderToTask" EntitySet="LinkFolderToTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkProjectToFolder_Folders" Association="Self.FK_LinkProjectToFolder_Folders">
+            <End Role="Folders" EntitySet="Folders" />
+            <End Role="LinkProjectToFolder" EntitySet="LinkProjectToFolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkProjectToFolder_Projects" Association="Self.FK_LinkProjectToFolder_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="LinkProjectToFolder" EntitySet="LinkProjectToFolder" />
           </AssociationSet>
           <AssociationSet Name="FK_LinkProjectToTask_Projects" Association="Self.FK_LinkProjectToTask_Projects">
             <End Role="Projects" EntitySet="Projects" />
@@ -414,33 +498,117 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProjectManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ProjectManagerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="ProjectManagerModel.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="ProjectManagerModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="ProjectManagerModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="ProjectManagerModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="ProjectManagerModel.AspNetUser" />
+          <EntitySet Name="Colors" EntityType="ProjectManagerModel.Color" />
+          <EntitySet Name="EmailQueues" EntityType="ProjectManagerModel.EmailQueue" />
+          <EntitySet Name="Folders" EntityType="ProjectManagerModel.Folder" />
+          <EntitySet Name="LinkFolderToProjects" EntityType="ProjectManagerModel.LinkFolderToProject" />
+          <EntitySet Name="LinkFolderToTasks" EntityType="ProjectManagerModel.LinkFolderToTask" />
+          <EntitySet Name="LinkProjectToFolders" EntityType="ProjectManagerModel.LinkProjectToFolder" />
+          <EntitySet Name="LinkProjectToTasks" EntityType="ProjectManagerModel.LinkProjectToTask" />
+          <EntitySet Name="LinkUserToFolders" EntityType="ProjectManagerModel.LinkUserToFolder" />
+          <EntitySet Name="LinkUserToTasks" EntityType="ProjectManagerModel.LinkUserToTask" />
+          <EntitySet Name="Priorities" EntityType="ProjectManagerModel.Priority" />
+          <EntitySet Name="Projects" EntityType="ProjectManagerModel.Project" />
+          <EntitySet Name="Tasks" EntityType="ProjectManagerModel.Task" />
+          <EntitySet Name="WorkFlows" EntityType="ProjectManagerModel.WorkFlow" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="ProjectManagerModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="ProjectManagerModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkUserToFolder_AspNetUsers" Association="ProjectManagerModel.FK_LinkUserToFolder_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="LinkUserToFolder" EntitySet="LinkUserToFolders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkUserToTask_AspNetUsers" Association="ProjectManagerModel.FK_LinkUserToTask_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="LinkUserToTask" EntitySet="LinkUserToTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Colors" Association="ProjectManagerModel.FK_Projects_Colors">
+            <End Role="Color" EntitySet="Colors" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkFolderToProject_Folders" Association="ProjectManagerModel.FK_LinkFolderToProject_Folders">
+            <End Role="Folder" EntitySet="Folders" />
+            <End Role="LinkFolderToProject" EntitySet="LinkFolderToProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkFolderToTask_Folders" Association="ProjectManagerModel.FK_LinkFolderToTask_Folders">
+            <End Role="Folder" EntitySet="Folders" />
+            <End Role="LinkFolderToTask" EntitySet="LinkFolderToTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkProjectToFolder_Folders" Association="ProjectManagerModel.FK_LinkProjectToFolder_Folders">
+            <End Role="Folder" EntitySet="Folders" />
+            <End Role="LinkProjectToFolder" EntitySet="LinkProjectToFolders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkUserToFolder_Folders" Association="ProjectManagerModel.FK_LinkUserToFolder_Folders">
+            <End Role="Folder" EntitySet="Folders" />
+            <End Role="LinkUserToFolder" EntitySet="LinkUserToFolders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkFolderToProject_Projects" Association="ProjectManagerModel.FK_LinkFolderToProject_Projects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="LinkFolderToProject" EntitySet="LinkFolderToProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkFolderToTask_Tasks" Association="ProjectManagerModel.FK_LinkFolderToTask_Tasks">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="LinkFolderToTask" EntitySet="LinkFolderToTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkProjectToFolder_Projects" Association="ProjectManagerModel.FK_LinkProjectToFolder_Projects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="LinkProjectToFolder" EntitySet="LinkProjectToFolders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkProjectToTask_Projects" Association="ProjectManagerModel.FK_LinkProjectToTask_Projects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="LinkProjectToTask" EntitySet="LinkProjectToTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkProjectToTask_Tasks" Association="ProjectManagerModel.FK_LinkProjectToTask_Tasks">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="LinkProjectToTask" EntitySet="LinkProjectToTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkUserToTask_Tasks" Association="ProjectManagerModel.FK_LinkUserToTask_Tasks">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="LinkUserToTask" EntitySet="LinkUserToTasks" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="ProjectManagerModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
             <PropertyRef Name="ContextKey" />
           </Key>
-          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="ProjectManagerModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUserClaim">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser" Relationship="ProjectManagerModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUserLogin">
           <Key>
@@ -448,16 +616,16 @@
             <PropertyRef Name="ProviderKey" />
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="ProjectManagerModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUser">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -468,332 +636,25 @@
           <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="First" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Last" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="LinkUserToFolders" Relationship="Self.FK_LinkUserToFolder_AspNetUsers" FromRole="AspNetUsers" ToRole="LinkUserToFolder" />
-          <NavigationProperty Name="LinkUserToTasks" Relationship="Self.FK_LinkUserToTask_AspNetUsers" FromRole="AspNetUsers" ToRole="LinkUserToTask" />
-          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="ProjectManagerModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="ProjectManagerModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="LinkUserToFolders" Relationship="ProjectManagerModel.FK_LinkUserToFolder_AspNetUsers" FromRole="AspNetUser" ToRole="LinkUserToFolder" />
+          <NavigationProperty Name="LinkUserToTasks" Relationship="ProjectManagerModel.FK_LinkUserToTask_AspNetUsers" FromRole="AspNetUser" ToRole="LinkUserToTask" />
+          <NavigationProperty Name="AspNetRoles" Relationship="ProjectManagerModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Hex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hex" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_Colors" FromRole="Colors" ToRole="Projects" />
+          <NavigationProperty Name="Projects" Relationship="ProjectManagerModel.FK_Projects_Colors" FromRole="Color" ToRole="Project" />
         </EntityType>
-        <EntityType Name="Folder">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="LinkFolderToTasks" Relationship="Self.FK_LinkFolderToTask_Folders" FromRole="Folders" ToRole="LinkFolderToTask" />
-          <NavigationProperty Name="LinkUserToFolders" Relationship="Self.FK_LinkUserToFolder_Folders" FromRole="Folders" ToRole="LinkUserToFolder" />
-        </EntityType>
-        <EntityType Name="LinkFolderToTask">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FolderId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TaskId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DateCreated" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Folder" Relationship="Self.FK_LinkFolderToTask_Folders" FromRole="LinkFolderToTask" ToRole="Folders" />
-          <NavigationProperty Name="Task" Relationship="Self.FK_LinkFolderToTask_Tasks" FromRole="LinkFolderToTask" ToRole="Tasks" />
-        </EntityType>
-        <EntityType Name="LinkProjectToTask">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProjectId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TaskId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DateCreated" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Project" Relationship="Self.FK_LinkProjectToTask_Projects" FromRole="LinkProjectToTask" ToRole="Projects" />
-          <NavigationProperty Name="Task" Relationship="Self.FK_LinkProjectToTask_Tasks" FromRole="LinkProjectToTask" ToRole="Tasks" />
-        </EntityType>
-        <EntityType Name="LinkUserToFolder">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FolderId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DateCreated" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_LinkUserToFolder_AspNetUsers" FromRole="LinkUserToFolder" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Folder" Relationship="Self.FK_LinkUserToFolder_Folders" FromRole="LinkUserToFolder" ToRole="Folders" />
-        </EntityType>
-        <EntityType Name="LinkUserToTask">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TaskId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DateCreated" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_LinkUserToTask_AspNetUsers" FromRole="LinkUserToTask" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Task" Relationship="Self.FK_LinkUserToTask_Tasks" FromRole="LinkUserToTask" ToRole="Tasks" />
-        </EntityType>
-        <EntityType Name="Priority">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="Project">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ColorId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="StartDate" Type="DateTime" Precision="3" />
-          <Property Name="EndDate" Type="DateTime" Precision="3" />
-          <Property Name="PriorityId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Color" Relationship="Self.FK_Projects_Colors" FromRole="Projects" ToRole="Colors" />
-          <NavigationProperty Name="LinkProjectToTasks" Relationship="Self.FK_LinkProjectToTask_Projects" FromRole="Projects" ToRole="LinkProjectToTask" />
-        </EntityType>
-        <EntityType Name="Task">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="WorkflowId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="DateStart" Type="DateTime" Precision="3" />
-          <Property Name="DateEnd" Type="DateTime" Precision="3" />
-          <Property Name="ParentTaskId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="LinkFolderToTasks" Relationship="Self.FK_LinkFolderToTask_Tasks" FromRole="Tasks" ToRole="LinkFolderToTask" />
-          <NavigationProperty Name="LinkProjectToTasks" Relationship="Self.FK_LinkProjectToTask_Tasks" FromRole="Tasks" ToRole="LinkProjectToTask" />
-          <NavigationProperty Name="LinkUserToTasks" Relationship="Self.FK_LinkUserToTask_Tasks" FromRole="Tasks" ToRole="LinkUserToTask" />
-        </EntityType>
-        <EntityType Name="WorkFlow">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="AccountId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaims">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogins">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LinkUserToFolder_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-          <End Role="LinkUserToFolder" Type="Self.LinkUserToFolder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LinkUserToFolder">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LinkUserToTask_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-          <End Role="LinkUserToTask" Type="Self.LinkUserToTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LinkUserToTask">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Projects_Colors">
-          <End Role="Colors" Type="Self.Color" Multiplicity="0..1" />
-          <End Role="Projects" Type="Self.Project" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Colors">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Projects">
-              <PropertyRef Name="ColorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LinkFolderToTask_Folders">
-          <End Role="Folders" Type="Self.Folder" Multiplicity="1" />
-          <End Role="LinkFolderToTask" Type="Self.LinkFolderToTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Folders">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LinkFolderToTask">
-              <PropertyRef Name="FolderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LinkUserToFolder_Folders">
-          <End Role="Folders" Type="Self.Folder" Multiplicity="1" />
-          <End Role="LinkUserToFolder" Type="Self.LinkUserToFolder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Folders">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LinkUserToFolder">
-              <PropertyRef Name="FolderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LinkFolderToTask_Tasks">
-          <End Role="Tasks" Type="Self.Task" Multiplicity="1" />
-          <End Role="LinkFolderToTask" Type="Self.LinkFolderToTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tasks">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LinkFolderToTask">
-              <PropertyRef Name="TaskId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LinkProjectToTask_Projects">
-          <End Role="Projects" Type="Self.Project" Multiplicity="1" />
-          <End Role="LinkProjectToTask" Type="Self.LinkProjectToTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Projects">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LinkProjectToTask">
-              <PropertyRef Name="ProjectId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LinkProjectToTask_Tasks">
-          <End Role="Tasks" Type="Self.Task" Multiplicity="1" />
-          <End Role="LinkProjectToTask" Type="Self.LinkProjectToTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tasks">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LinkProjectToTask">
-              <PropertyRef Name="TaskId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LinkUserToTask_Tasks">
-          <End Role="Tasks" Type="Self.Task" Multiplicity="1" />
-          <End Role="LinkUserToTask" Type="Self.LinkUserToTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tasks">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LinkUserToTask">
-              <PropertyRef Name="TaskId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AspNetUserRoles">
-          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
-        </Association>
-        <EntityContainer Name="ProjectManagerEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-          <EntitySet Name="Colors" EntityType="Self.Color" />
-          <EntitySet Name="Folders" EntityType="Self.Folder" />
-          <EntitySet Name="LinkFolderToTasks" EntityType="Self.LinkFolderToTask" />
-          <EntitySet Name="LinkProjectToTasks" EntityType="Self.LinkProjectToTask" />
-          <EntitySet Name="LinkUserToFolders" EntityType="Self.LinkUserToFolder" />
-          <EntitySet Name="LinkUserToTasks" EntityType="Self.LinkUserToTask" />
-          <EntitySet Name="Priorities" EntityType="Self.Priority" />
-          <EntitySet Name="Projects" EntityType="Self.Project" />
-          <EntitySet Name="Tasks" EntityType="Self.Task" />
-          <EntitySet Name="WorkFlows" EntityType="Self.WorkFlow" />
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LinkUserToFolder_AspNetUsers" Association="Self.FK_LinkUserToFolder_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="LinkUserToFolder" EntitySet="LinkUserToFolders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LinkUserToTask_AspNetUsers" Association="Self.FK_LinkUserToTask_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="LinkUserToTask" EntitySet="LinkUserToTasks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Projects_Colors" Association="Self.FK_Projects_Colors">
-            <End Role="Colors" EntitySet="Colors" />
-            <End Role="Projects" EntitySet="Projects" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LinkFolderToTask_Folders" Association="Self.FK_LinkFolderToTask_Folders">
-            <End Role="Folders" EntitySet="Folders" />
-            <End Role="LinkFolderToTask" EntitySet="LinkFolderToTasks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LinkUserToFolder_Folders" Association="Self.FK_LinkUserToFolder_Folders">
-            <End Role="Folders" EntitySet="Folders" />
-            <End Role="LinkUserToFolder" EntitySet="LinkUserToFolders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LinkFolderToTask_Tasks" Association="Self.FK_LinkFolderToTask_Tasks">
-            <End Role="Tasks" EntitySet="Tasks" />
-            <End Role="LinkFolderToTask" EntitySet="LinkFolderToTasks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LinkProjectToTask_Projects" Association="Self.FK_LinkProjectToTask_Projects">
-            <End Role="Projects" EntitySet="Projects" />
-            <End Role="LinkProjectToTask" EntitySet="LinkProjectToTasks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LinkProjectToTask_Tasks" Association="Self.FK_LinkProjectToTask_Tasks">
-            <End Role="Tasks" EntitySet="Tasks" />
-            <End Role="LinkProjectToTask" EntitySet="LinkProjectToTasks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LinkUserToTask_Tasks" Association="Self.FK_LinkUserToTask_Tasks">
-            <End Role="Tasks" EntitySet="Tasks" />
-            <End Role="LinkUserToTask" EntitySet="LinkUserToTasks" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-          </AssociationSet>
-          <EntitySet Name="EmailQueues" EntityType="ProjectManagerModel.EmailQueue" />
-        </EntityContainer>
         <EntityType Name="EmailQueue">
           <Key>
             <PropertyRef Name="Id" />
@@ -806,7 +667,322 @@
           <Property Name="IsProcessed" Type="Boolean" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Folder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LinkFolderToProjects" Relationship="ProjectManagerModel.FK_LinkFolderToProject_Folders" FromRole="Folder" ToRole="LinkFolderToProject" />
+          <NavigationProperty Name="LinkFolderToTasks" Relationship="ProjectManagerModel.FK_LinkFolderToTask_Folders" FromRole="Folder" ToRole="LinkFolderToTask" />
+          <NavigationProperty Name="LinkProjectToFolders" Relationship="ProjectManagerModel.FK_LinkProjectToFolder_Folders" FromRole="Folder" ToRole="LinkProjectToFolder" />
+          <NavigationProperty Name="LinkUserToFolders" Relationship="ProjectManagerModel.FK_LinkUserToFolder_Folders" FromRole="Folder" ToRole="LinkUserToFolder" />
+        </EntityType>
+        <EntityType Name="LinkFolderToProject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FolderId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Folder" Relationship="ProjectManagerModel.FK_LinkFolderToProject_Folders" FromRole="LinkFolderToProject" ToRole="Folder" />
+          <NavigationProperty Name="Project" Relationship="ProjectManagerModel.FK_LinkFolderToProject_Projects" FromRole="LinkFolderToProject" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="LinkFolderToTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FolderId" Type="Int32" Nullable="false" />
+          <Property Name="TaskId" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Folder" Relationship="ProjectManagerModel.FK_LinkFolderToTask_Folders" FromRole="LinkFolderToTask" ToRole="Folder" />
+          <NavigationProperty Name="Task" Relationship="ProjectManagerModel.FK_LinkFolderToTask_Tasks" FromRole="LinkFolderToTask" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="LinkProjectToFolder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="FolderId" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Folder" Relationship="ProjectManagerModel.FK_LinkProjectToFolder_Folders" FromRole="LinkProjectToFolder" ToRole="Folder" />
+          <NavigationProperty Name="Project" Relationship="ProjectManagerModel.FK_LinkProjectToFolder_Projects" FromRole="LinkProjectToFolder" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="LinkProjectToTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="TaskId" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Project" Relationship="ProjectManagerModel.FK_LinkProjectToTask_Projects" FromRole="LinkProjectToTask" ToRole="Project" />
+          <NavigationProperty Name="Task" Relationship="ProjectManagerModel.FK_LinkProjectToTask_Tasks" FromRole="LinkProjectToTask" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="LinkUserToFolder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FolderId" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="ProjectManagerModel.FK_LinkUserToFolder_AspNetUsers" FromRole="LinkUserToFolder" ToRole="AspNetUser" />
+          <NavigationProperty Name="Folder" Relationship="ProjectManagerModel.FK_LinkUserToFolder_Folders" FromRole="LinkUserToFolder" ToRole="Folder" />
+        </EntityType>
+        <EntityType Name="LinkUserToTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TaskId" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="ProjectManagerModel.FK_LinkUserToTask_AspNetUsers" FromRole="LinkUserToTask" ToRole="AspNetUser" />
+          <NavigationProperty Name="Task" Relationship="ProjectManagerModel.FK_LinkUserToTask_Tasks" FromRole="LinkUserToTask" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ColorId" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="PriorityId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Color" Relationship="ProjectManagerModel.FK_Projects_Colors" FromRole="Project" ToRole="Color" />
+          <NavigationProperty Name="LinkFolderToProjects" Relationship="ProjectManagerModel.FK_LinkFolderToProject_Projects" FromRole="Project" ToRole="LinkFolderToProject" />
+          <NavigationProperty Name="LinkProjectToFolders" Relationship="ProjectManagerModel.FK_LinkProjectToFolder_Projects" FromRole="Project" ToRole="LinkProjectToFolder" />
+          <NavigationProperty Name="LinkProjectToTasks" Relationship="ProjectManagerModel.FK_LinkProjectToTask_Projects" FromRole="Project" ToRole="LinkProjectToTask" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="WorkflowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateStart" Type="DateTime" Precision="3" />
+          <Property Name="DateEnd" Type="DateTime" Precision="3" />
+          <Property Name="ParentTaskId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LinkFolderToTasks" Relationship="ProjectManagerModel.FK_LinkFolderToTask_Tasks" FromRole="Task" ToRole="LinkFolderToTask" />
+          <NavigationProperty Name="LinkProjectToTasks" Relationship="ProjectManagerModel.FK_LinkProjectToTask_Tasks" FromRole="Task" ToRole="LinkProjectToTask" />
+          <NavigationProperty Name="LinkUserToTasks" Relationship="ProjectManagerModel.FK_LinkUserToTask_Tasks" FromRole="Task" ToRole="LinkUserToTask" />
+        </EntityType>
+        <EntityType Name="WorkFlow">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AccountId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="ProjectManagerModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ProjectManagerModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="ProjectManagerModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ProjectManagerModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkUserToFolder_AspNetUsers">
+          <End Type="ProjectManagerModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkUserToFolder" Role="LinkUserToFolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkUserToFolder">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkUserToTask_AspNetUsers">
+          <End Type="ProjectManagerModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkUserToTask" Role="LinkUserToTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkUserToTask">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Colors">
+          <End Type="ProjectManagerModel.Color" Role="Color" Multiplicity="0..1" />
+          <End Type="ProjectManagerModel.Project" Role="Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkFolderToProject_Folders">
+          <End Type="ProjectManagerModel.Folder" Role="Folder" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkFolderToProject" Role="LinkFolderToProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkFolderToProject">
+              <PropertyRef Name="FolderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkFolderToTask_Folders">
+          <End Type="ProjectManagerModel.Folder" Role="Folder" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkFolderToTask" Role="LinkFolderToTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkFolderToTask">
+              <PropertyRef Name="FolderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkProjectToFolder_Folders">
+          <End Type="ProjectManagerModel.Folder" Role="Folder" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkProjectToFolder" Role="LinkProjectToFolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkProjectToFolder">
+              <PropertyRef Name="FolderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkUserToFolder_Folders">
+          <End Type="ProjectManagerModel.Folder" Role="Folder" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkUserToFolder" Role="LinkUserToFolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkUserToFolder">
+              <PropertyRef Name="FolderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkFolderToProject_Projects">
+          <End Type="ProjectManagerModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkFolderToProject" Role="LinkFolderToProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkFolderToProject">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkFolderToTask_Tasks">
+          <End Type="ProjectManagerModel.Task" Role="Task" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkFolderToTask" Role="LinkFolderToTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkFolderToTask">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkProjectToFolder_Projects">
+          <End Type="ProjectManagerModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkProjectToFolder" Role="LinkProjectToFolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkProjectToFolder">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkProjectToTask_Projects">
+          <End Type="ProjectManagerModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkProjectToTask" Role="LinkProjectToTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkProjectToTask">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkProjectToTask_Tasks">
+          <End Type="ProjectManagerModel.Task" Role="Task" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkProjectToTask" Role="LinkProjectToTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkProjectToTask">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkUserToTask_Tasks">
+          <End Type="ProjectManagerModel.Task" Role="Task" Multiplicity="1" />
+          <End Type="ProjectManagerModel.LinkUserToTask" Role="LinkUserToTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LinkUserToTask">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="ProjectManagerModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="ProjectManagerModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -815,173 +991,70 @@
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="ProjectManagerModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="ProjectManagerModel.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
             <EntityTypeMapping TypeName="ProjectManagerModel.AspNetUserClaim">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
                 <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
             <EntityTypeMapping TypeName="ProjectManagerModel.AspNetUserLogin">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
-                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="ProjectManagerModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="First" ColumnName="First" />
                 <ScalarProperty Name="Last" ColumnName="Last" />
+                <ScalarProperty Name="First" ColumnName="First" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Colors">
             <EntityTypeMapping TypeName="ProjectManagerModel.Color">
               <MappingFragment StoreEntitySet="Colors">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Hex" ColumnName="Hex" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Folders">
-            <EntityTypeMapping TypeName="ProjectManagerModel.Folder">
-              <MappingFragment StoreEntitySet="Folders">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LinkFolderToTasks">
-            <EntityTypeMapping TypeName="ProjectManagerModel.LinkFolderToTask">
-              <MappingFragment StoreEntitySet="LinkFolderToTask">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FolderId" ColumnName="FolderId" />
-                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LinkProjectToTasks">
-            <EntityTypeMapping TypeName="ProjectManagerModel.LinkProjectToTask">
-              <MappingFragment StoreEntitySet="LinkProjectToTask">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LinkUserToFolders">
-            <EntityTypeMapping TypeName="ProjectManagerModel.LinkUserToFolder">
-              <MappingFragment StoreEntitySet="LinkUserToFolder">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="FolderId" ColumnName="FolderId" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LinkUserToTasks">
-            <EntityTypeMapping TypeName="ProjectManagerModel.LinkUserToTask">
-              <MappingFragment StoreEntitySet="LinkUserToTask">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Priorities">
-            <EntityTypeMapping TypeName="ProjectManagerModel.Priority">
-              <MappingFragment StoreEntitySet="Priority">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Projects">
-            <EntityTypeMapping TypeName="ProjectManagerModel.Project">
-              <MappingFragment StoreEntitySet="Projects">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tasks">
-            <EntityTypeMapping TypeName="ProjectManagerModel.Task">
-              <MappingFragment StoreEntitySet="Tasks">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="WorkflowId" ColumnName="WorkflowId" />
-                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
-                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
-                <ScalarProperty Name="ParentTaskId" ColumnName="ParentTaskId" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WorkFlows">
-            <EntityTypeMapping TypeName="ProjectManagerModel.WorkFlow">
-              <MappingFragment StoreEntitySet="WorkFlows">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="ProjectManagerModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetRoles">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-            <EndProperty Name="AspNetUsers">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="EmailQueues">
             <EntityTypeMapping TypeName="ProjectManagerModel.EmailQueue">
               <MappingFragment StoreEntitySet="EmailQueue">
@@ -995,6 +1068,129 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Folders">
+            <EntityTypeMapping TypeName="ProjectManagerModel.Folder">
+              <MappingFragment StoreEntitySet="Folders">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkFolderToProjects">
+            <EntityTypeMapping TypeName="ProjectManagerModel.LinkFolderToProject">
+              <MappingFragment StoreEntitySet="LinkFolderToProject">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="FolderId" ColumnName="FolderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkFolderToTasks">
+            <EntityTypeMapping TypeName="ProjectManagerModel.LinkFolderToTask">
+              <MappingFragment StoreEntitySet="LinkFolderToTask">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="FolderId" ColumnName="FolderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkProjectToFolders">
+            <EntityTypeMapping TypeName="ProjectManagerModel.LinkProjectToFolder">
+              <MappingFragment StoreEntitySet="LinkProjectToFolder">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="FolderId" ColumnName="FolderId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkProjectToTasks">
+            <EntityTypeMapping TypeName="ProjectManagerModel.LinkProjectToTask">
+              <MappingFragment StoreEntitySet="LinkProjectToTask">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkUserToFolders">
+            <EntityTypeMapping TypeName="ProjectManagerModel.LinkUserToFolder">
+              <MappingFragment StoreEntitySet="LinkUserToFolder">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="FolderId" ColumnName="FolderId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkUserToTasks">
+            <EntityTypeMapping TypeName="ProjectManagerModel.LinkUserToTask">
+              <MappingFragment StoreEntitySet="LinkUserToTask">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Priorities">
+            <EntityTypeMapping TypeName="ProjectManagerModel.Priority">
+              <MappingFragment StoreEntitySet="Priority">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ProjectManagerModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="ProjectManagerModel.Task">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ParentTaskId" ColumnName="ParentTaskId" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="WorkflowId" ColumnName="WorkflowId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkFlows">
+            <EntityTypeMapping TypeName="ProjectManagerModel.WorkFlow">
+              <MappingFragment StoreEntitySet="WorkFlows">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="ProjectManagerModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

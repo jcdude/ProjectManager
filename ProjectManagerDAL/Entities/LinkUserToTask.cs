@@ -14,9 +14,9 @@ namespace ProjectManagerDAL.Entities
     
     public partial class LinkUserToTask
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string UserId { get; set; }
-        public string TaskId { get; set; }
+        public int TaskId { get; set; }
         public string DateCreated { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }

@@ -20,7 +20,7 @@ namespace ProjectManagerDAL.Entities
             this.Projects = new HashSet<Project>();
         }
     
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Description { get; set; }
         public string Hex { get; set; }
         public System.DateTime DateCreated { get; set; }

@@ -22,11 +22,11 @@ namespace ProjectManagerDAL.Entities
             this.LinkUserToTasks = new HashSet<LinkUserToTask>();
         }
     
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Description { get; set; }
         public string Body { get; set; }
         public string UserId { get; set; }
-        public string WorkflowId { get; set; }
+        public int WorkflowId { get; set; }
         public Nullable<System.DateTime> DateStart { get; set; }
         public Nullable<System.DateTime> DateEnd { get; set; }
         public string ParentTaskId { get; set; }

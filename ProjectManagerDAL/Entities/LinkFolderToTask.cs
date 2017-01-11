@@ -14,9 +14,9 @@ namespace ProjectManagerDAL.Entities
     
     public partial class LinkFolderToTask
     {
-        public string Id { get; set; }
-        public string FolderId { get; set; }
-        public string TaskId { get; set; }
+        public int Id { get; set; }
+        public int FolderId { get; set; }
+        public int TaskId { get; set; }
         public string DateCreated { get; set; }
     
         public virtual Folder Folder { get; set; }

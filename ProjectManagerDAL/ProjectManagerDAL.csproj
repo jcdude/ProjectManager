@@ -75,7 +75,13 @@
     <Compile Include="Entities\Folder.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\LinkFolderToProject.cs">
+      <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\LinkFolderToTask.cs">
+      <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LinkProjectToFolder.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\LinkProjectToTask.cs">
