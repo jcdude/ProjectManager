@@ -1,0 +1,2 @@
+Run this to get VS to see the cheanges for commit
+git add -u .
