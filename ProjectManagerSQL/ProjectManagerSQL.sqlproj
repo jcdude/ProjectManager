@@ -81,8 +81,7 @@
     <Build Include="dbo\Tables\LinkProjectToTask.sql" />
     <Build Include="dbo\Tables\LinkFolderToTask.sql" />
     <Build Include="dbo\Tables\EmailQueue.sql" />
-    <Build Include="Security\jedtest.sql" />
-    <Build Include="Security\jedtest_1.sql" />
+    <Build Include="Security\admin.sql" />
     <Build Include="Security\RoleMemberships.sql" />
   </ItemGroup>
 </Project>
