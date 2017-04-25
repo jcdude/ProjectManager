@@ -14,12 +14,13 @@ namespace ProjectManagerDAL.Entities
     
     public partial class LinkProjectToFolder
     {
-        public int Id { get; set; }
-        public int ProjectId { get; set; }
-        public int FolderId { get; set; }
+        public string Id { get; set; }
+        public string FolderId { get; set; }
+        public string ProjectId { get; set; }
         public System.DateTime DateCreated { get; set; }
     
-        public virtual Folder Folder { get; set; }
         public virtual Project Project { get; set; }
+        public virtual LinkProjectToFolder LinkProjectToFolder1 { get; set; }
+        public virtual LinkProjectToFolder LinkProjectToFolder2 { get; set; }
     }
 }

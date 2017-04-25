@@ -12,14 +12,14 @@ namespace ProjectManagerDAL.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class LinkUserToTask
+    public partial class LinkUserToProject
     {
         public string Id { get; set; }
         public string UserId { get; set; }
-        public string TaskId { get; set; }
+        public string ProjectId { get; set; }
         public string DateCreated { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Task Task { get; set; }
+        public virtual Project Project { get; set; }
     }
 }

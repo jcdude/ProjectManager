@@ -17,23 +17,26 @@ namespace ProjectManagerDAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Folder()
         {
-            this.LinkFolderToProjects = new HashSet<LinkFolderToProject>();
             this.LinkFolderToTasks = new HashSet<LinkFolderToTask>();
-            this.LinkProjectToFolders = new HashSet<LinkProjectToFolder>();
             this.LinkUserToFolders = new HashSet<LinkUserToFolder>();
+            this.LinkFolderToFolders = new HashSet<LinkFolderToFolder>();
+            this.LinkFolderToFolders1 = new HashSet<LinkFolderToFolder>();
+            this.LinkFolderToProjects = new HashSet<LinkFolderToProject>();
         }
     
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LinkFolderToProject> LinkFolderToProjects { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LinkFolderToTask> LinkFolderToTasks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LinkProjectToFolder> LinkProjectToFolders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LinkUserToFolder> LinkUserToFolders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LinkFolderToFolder> LinkFolderToFolders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LinkFolderToFolder> LinkFolderToFolders1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LinkFolderToProject> LinkFolderToProjects { get; set; }
     }
 }

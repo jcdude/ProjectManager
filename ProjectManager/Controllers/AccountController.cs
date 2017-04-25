@@ -9,8 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ProjectManager.Models;
-using ProjectManagerDAL.Entities;
 using System.Collections.Generic;
+using ProjectManagerDAL.Entities;
 
 namespace ProjectManager.Controllers
 {

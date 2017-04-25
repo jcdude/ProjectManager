@@ -14,9 +14,9 @@ namespace ProjectManagerDAL.Entities
     
     public partial class LinkProjectToTask
     {
-        public int Id { get; set; }
-        public int ProjectId { get; set; }
-        public int TaskId { get; set; }
+        public string Id { get; set; }
+        public string ProjectId { get; set; }
+        public string TaskId { get; set; }
         public string DateCreated { get; set; }
     
         public virtual Project Project { get; set; }

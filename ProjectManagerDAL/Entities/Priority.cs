@@ -14,7 +14,7 @@ namespace ProjectManagerDAL.Entities
     
     public partial class Priority
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Description { get; set; }
         public System.DateTime DateCreated { get; set; }
     }

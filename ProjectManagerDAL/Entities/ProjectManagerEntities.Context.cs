@@ -33,9 +33,8 @@ namespace ProjectManagerDAL.Entities
         public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<EmailQueue> EmailQueues { get; set; }
         public virtual DbSet<Folder> Folders { get; set; }
-        public virtual DbSet<LinkFolderToProject> LinkFolderToProjects { get; set; }
         public virtual DbSet<LinkFolderToTask> LinkFolderToTasks { get; set; }
-        public virtual DbSet<LinkProjectToFolder> LinkProjectToFolders { get; set; }
+        public virtual DbSet<LinkProjectToProject> LinkProjectToProjects { get; set; }
         public virtual DbSet<LinkProjectToTask> LinkProjectToTasks { get; set; }
         public virtual DbSet<LinkUserToFolder> LinkUserToFolders { get; set; }
         public virtual DbSet<LinkUserToTask> LinkUserToTasks { get; set; }
@@ -43,5 +42,9 @@ namespace ProjectManagerDAL.Entities
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Task> Tasks { get; set; }
         public virtual DbSet<WorkFlow> WorkFlows { get; set; }
+        public virtual DbSet<LinkFolderToFolder> LinkFolderToFolders { get; set; }
+        public virtual DbSet<LinkFolderToProject> LinkFolderToProjects { get; set; }
+        public virtual DbSet<LinkProjectToFolder> LinkProjectToFolders { get; set; }
+        public virtual DbSet<LinkUserToProject> LinkUserToProjects { get; set; }
     }
 }

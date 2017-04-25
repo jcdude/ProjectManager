@@ -22,6 +22,7 @@ namespace ProjectManagerDAL.Entities
             this.LinkUserToFolders = new HashSet<LinkUserToFolder>();
             this.LinkUserToTasks = new HashSet<LinkUserToTask>();
             this.AspNetRoles = new HashSet<AspNetRole>();
+            this.LinkUserToProjects = new HashSet<LinkUserToProject>();
         }
     
         public string Id { get; set; }
@@ -49,5 +50,7 @@ namespace ProjectManagerDAL.Entities
         public virtual ICollection<LinkUserToTask> LinkUserToTasks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LinkUserToProject> LinkUserToProjects { get; set; }
     }
 }

@@ -75,6 +75,9 @@
     <Compile Include="Entities\Folder.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\LinkFolderToFolder.cs">
+      <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\LinkFolderToProject.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
     </Compile>
@@ -84,10 +87,16 @@
     <Compile Include="Entities\LinkProjectToFolder.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\LinkProjectToProject.cs">
+      <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\LinkProjectToTask.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\LinkUserToFolder.cs">
+      <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LinkUserToProject.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\LinkUserToTask.cs">
