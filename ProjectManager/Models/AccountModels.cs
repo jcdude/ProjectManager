@@ -8,7 +8,16 @@ namespace ProjectManager.Models
 {
     public class AccountModels
     {
-        public List<ManagerUserListItem> getAllUsers()
+        private AspNetUser folder;
+        private ProjectManagerEntities db;
+
+        public AccountModels(string accountId)
+        {
+            db = new ProjectManagerEntities();
+            folder = db.AspNetUsers.FirstOrDefault(x => x.Id == accountId);
+        }
+
+        public static List<ManagerUserListItem> getAllUsers()
         {
             using (var pMEtities = new ProjectManagerEntities())
             {

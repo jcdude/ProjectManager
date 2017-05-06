@@ -210,7 +210,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Render\Components\TreeView\CustomTreeView.cs" />
+    <Compile Include="Helpers\Render\Components\TreeView\Folders\TvSidebarFolders.cs" />
+    <Compile Include="Helpers\Render\Components\TreeView\ITreeView.cs" />
     <Compile Include="Helpers\Render\Components\SideBar.cs" />
+    <Compile Include="Helpers\Render\Components\TreeView\Projects\TvSideBarProjects.cs" />
+    <Compile Include="Helpers\Render\Components\TreeView\Tasks\TvSidebarTasks.cs" />
     <Compile Include="Migrations\201610040645419_InitialCreate.cs" />
     <Compile Include="Migrations\201610040645419_InitialCreate.Designer.cs">
       <DependentUpon>201610040645419_InitialCreate.cs</DependentUpon>
@@ -226,7 +231,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\FolderModel.cs" />
+    <Compile Include="Models\TaskModels.cs" />
+    <Compile Include="Models\ProjectModels.cs" />
+    <Compile Include="Models\FolderModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
