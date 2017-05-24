@@ -17,6 +17,14 @@ namespace ProjectManager.Models
             task = db.Tasks.FirstOrDefault(x => x.Id == taskId);
         }
 
-        
+        public IList<Folder> foldersByProject()
+        {
+            var folders = (from link in db.LinkFolderToTasks
+                            join folder in db.Folders
+                            on link.FolderId equals folder.Id
+                            where link.TaskId == task.Id
+                            select folder);
+            return folders.ToList();
+        }
     }
 }

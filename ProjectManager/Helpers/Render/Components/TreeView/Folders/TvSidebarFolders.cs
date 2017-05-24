@@ -1,4 +1,5 @@
-﻿using ProjectManagerDAL.Entities;
+﻿using ProjectManager.Models;
+using ProjectManagerDAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,17 +17,11 @@ namespace ProjectManager.Helpers.Render.Components.TreeView.Folders
             db = new ProjectManagerEntities();
         }
 
-        public string treeLevelOne(string userId)
+        public string treeLevelOne(ApplicationUser user)
         {
             var sb = new StringBuilder();
 
-            var folders = (from user in db.AspNetUsers
-                            join link in db.LinkUserToFolders
-                            on user.Id equals link.UserId
-                            join folder in db.Folders
-                            on link.FolderId equals folder.Id
-                            where user.Id == userId
-                            select folder);
+            var folders = user.GetTreeLevelOne();
 
             foreach (var folder in folders)
             {
@@ -41,13 +36,9 @@ namespace ProjectManager.Helpers.Render.Components.TreeView.Folders
         {
             var sb = new StringBuilder();
 
-            var folders = (from link in db.LinkFolderToFolders
-                            join folder in db.Folders
-                            on link.FolderId equals folder.Id
-                            where link.FolderId == folderId
-                            select folder);
+            var folderModel = new FolderModels(folderId, db);
 
-            foreach (var folder in folders)
+            foreach (var folder in folderModel.GetFoldersByFolder())
             {
                 sb.AppendFormat(liParent, folder.Description);
             }

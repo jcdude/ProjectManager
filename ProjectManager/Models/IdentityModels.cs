@@ -1,8 +1,11 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using ProjectManagerDAL.Entities;
 
 namespace ProjectManager.Models
 {
@@ -18,6 +21,21 @@ namespace ProjectManager.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
             return userIdentity;
+        }
+
+        public IList<Folder> GetTreeLevelOne()
+        {
+            using (var db = new ProjectManagerEntities())
+            {
+                var folders = (from user in db.AspNetUsers
+                               join link in db.LinkUserToFolders
+                               on user.Id equals link.UserId
+                               join folder in db.Folders
+                               on link.FolderId equals folder.Id
+                               where user.Id == user.Id
+                               select folder);
+                return folders.ToList();
+            }
         }
     }
 
