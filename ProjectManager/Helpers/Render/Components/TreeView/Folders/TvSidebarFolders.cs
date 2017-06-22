@@ -12,6 +12,11 @@ namespace ProjectManager.Helpers.Render.Components.TreeView.Folders
     {
         public ProjectManagerEntities db;
 
+        public TvSidebarFolders() : base()
+        {
+            db = new ProjectManagerEntities();
+        }
+
         public TvSidebarFolders(string parentLiFormat, string childLiFormat) : base(parentLiFormat, childLiFormat)
         {
             db = new ProjectManagerEntities();

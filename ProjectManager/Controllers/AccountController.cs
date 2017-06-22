@@ -426,7 +426,7 @@ namespace ProjectManager.Controllers
         {
             var model = new ManageUsersViewModel();
 
-            model.users = new AccountModels().getAllUsers();
+            model.users = AccountModels.getAllUsers();
 
             return View(model);
         }
