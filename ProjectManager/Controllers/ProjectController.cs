@@ -42,5 +42,32 @@ namespace ProjectManager.Controllers
             
             return new HttpUnauthorizedResult();
         }
+
+        public ActionResult Remove(string id)
+        {
+            if (Request.IsAjaxRequest())
+            {
+                try
+                {
+                    using (var db = new ProjectManagerEntities())
+                    {
+                        var project = new Project();
+                        project.Id = id;
+
+                        db.Projects.Remove(project);
+                        db.SaveChanges();
+
+                        return Json(new { id = project.Id }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+            }
+
+            return new HttpUnauthorizedResult();
+        }
     }
 }

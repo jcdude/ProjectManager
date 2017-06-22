@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ProjectManagerDAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -13,5 +15,61 @@ namespace ProjectManager.Controllers
         {
             return View();
         }
+
+        public ActionResult Add(string name)
+        {
+            if (Request.IsAjaxRequest())
+            {
+                try
+                {
+                    using (var db = new ProjectManagerEntities())
+                    {
+                        var task = new Task();
+                        task.Description = name;
+
+                        db.Tasks.Add(task);
+                        db.SaveChanges();
+
+                        return Json(new { id = task.Id }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+            }
+
+            return new HttpUnauthorizedResult();
+        }
+
+        public ActionResult Remove(string id)
+        {
+            if (Request.IsAjaxRequest())
+            {
+                try
+                {
+                    using (var db = new ProjectManagerEntities())
+                    {
+                        var task = new Task();
+                        task.Id = id;
+
+                        db.Tasks.Remove(task);
+                        db.SaveChanges();
+
+                        return Json(new { id = task.Id }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+            }
+
+            return new HttpUnauthorizedResult();
+        }
     }
+
+    
 }
