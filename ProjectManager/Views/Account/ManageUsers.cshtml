@@ -1,0 +1,31 @@
+﻿@model ProjectManager.Models.ManageUsersViewModel
+@{
+    ViewBag.Title = "ManageUsers";
+}
+
+<h2>ManageUsers</h2>
+
+<table class="table-striped">
+
+    @foreach (var item in Model.users)
+    {
+        <tr>
+            <td>@item.FullName</td>
+            <td><button>Allow User</button></td>
+        </tr>
+    }
+
+</table>
+
+<script type="text/javascript">
+    function(userId)
+    {
+        var alowUserUrl = '@Url.Action("Account", "Allow")/' + userId;
+
+        $.post(alowUserUrl, function (data) {
+            alert('User allowed');  
+        }).fail(function () {
+            alert('Unable to allow user');        
+        });
+    }
+</script>

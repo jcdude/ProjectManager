@@ -60,7 +60,7 @@ namespace ProjectManager.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return View("Login", "_LayoutAnon");
         }
 
         //
@@ -72,7 +72,7 @@ namespace ProjectManager.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("Login", "_LayoutAnon", model);
             }
 
             // This doesn't count login failures towards account lockout
@@ -89,7 +89,7 @@ namespace ProjectManager.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    return View("Login", "~/Views/Shared/_LayoutAnon.cshtml",model);
             }
         }
 

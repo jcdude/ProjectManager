@@ -16,6 +16,8 @@ namespace ProjectManager.Controllers
             return View();
         }
 
+        [Authorize(Roles = "AccountHolder,Admin")]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(string name)
         {
             if (Request.IsAjaxRequest())
@@ -43,6 +45,8 @@ namespace ProjectManager.Controllers
             return new HttpUnauthorizedResult();
         }
 
+        [Authorize(Roles = "AccountHolder,Admin")]
+        [ValidateAntiForgeryToken]
         public ActionResult Remove(string id)
         {
             if (Request.IsAjaxRequest())
