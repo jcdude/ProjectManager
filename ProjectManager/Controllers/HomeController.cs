@@ -8,6 +8,7 @@ namespace ProjectManager.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize(Roles = "AccountHolder,Admin")]
         public ActionResult Index()
         {
             return View();
