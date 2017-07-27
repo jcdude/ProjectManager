@@ -422,6 +422,7 @@ namespace ProjectManager.Controllers
         //
         // GET: /Account/ManageUsers
         [Authorize(Roles = "AccountHolder,Admin")]
+        [HttpGet]
         public ActionResult ManageUsers()
         {
             var model = new ManageUsersViewModel();
@@ -445,6 +446,15 @@ namespace ProjectManager.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "AccountHolder,Admin")]
+        public ActionResult TreeLevelOneComponent()
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            
+            return View(user.GetTreeLevelOne());
         }
 
         protected override void Dispose(bool disposing)

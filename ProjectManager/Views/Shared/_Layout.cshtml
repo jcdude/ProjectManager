@@ -20,10 +20,7 @@
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <ul class="nav navbar-nav" id="topNav">   
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,10 +30,8 @@
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <ul class="sidebar-nav" id="sideNav">  
+                <li folderId="-1" id="addFolder"><a>Add Folder<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -52,17 +47,30 @@
 
     </div>
   
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+    
     
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+        $(document).ready(function () {
+            var treeViewAjaxUrl = '@Url.Action("TreeLevelOneComponent", "Account")';
+
+            $.get(treeViewAjaxUrl, function (data) {
+                $(data).insertAfter($("#addFolder") );
+                $(data).insertAfter($("#addFolder") );
+            });
+        }
+        );
+
+    </script>
 </body>
 </html>

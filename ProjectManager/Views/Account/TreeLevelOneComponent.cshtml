@@ -1,0 +1,8 @@
+﻿@model List<ProjectManagerDAL.Entities.Folder>
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <li folderId="@item.Id"><a>@item.Description</a></li>
+}

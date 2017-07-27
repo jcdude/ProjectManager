@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ProjectManagerDAL.Entities;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ProjectManager.Models

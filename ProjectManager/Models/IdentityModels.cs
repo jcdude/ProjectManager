@@ -23,7 +23,7 @@ namespace ProjectManager.Models
             return userIdentity;
         }
 
-        public IList<Folder> GetTreeLevelOne()
+        public List<Folder> GetTreeLevelOne()
         {
             using (var db = new ProjectManagerEntities())
             {
