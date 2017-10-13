@@ -32,7 +32,8 @@ namespace ProjectManager.Models
                                on user.Id equals link.UserId
                                join folder in db.Folders
                                on link.FolderId equals folder.Id
-                               where user.Id == user.Id
+                               where user.Id == this.Id
+                               orderby folder.DateCreated descending
                                select folder);
                 return folders.ToList();
             }

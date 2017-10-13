@@ -9,6 +9,9 @@
 
 </head>
 <body>
+
+    <input type="hidden" id="loadSideBarFoldersUrl" value="@Url.Action("TreeLevelOneComponent", "Account")"/>
+
     <div class="navbar navbar-default navbar-fixed-top">
         <div>
             <div class="navbar-header">
@@ -17,10 +20,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Project Management", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" id="topNav">   
+                    <li><a>Inbox</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -30,8 +34,15 @@
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav" id="sideNav">  
-                <li folderId="-1" id="addFolder"><a>Add Folder<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+            <ul class="sidebar-nav tree well" id="sideNav">  
+                <li folderId="-1" id="sideBarAddFolderListItem">
+                    <div id="sideBarAddContainer">
+                        <a id="sideBarAddFolder">Add Folder<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                    </div>
+                    <div id="sideBarAddContainerSubmit" style="display:none">
+                        <input type="text" id="txtFolderDescription" />
+                    </div>      
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -52,6 +63,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/custom")
     @RenderSection("scripts", required: false)
 
     <!-- Menu Toggle Script -->
@@ -60,16 +72,6 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
-
-        $(document).ready(function () {
-            var treeViewAjaxUrl = '@Url.Action("TreeLevelOneComponent", "Account")';
-
-            $.get(treeViewAjaxUrl, function (data) {
-                $(data).insertAfter($("#addFolder") );
-                $(data).insertAfter($("#addFolder") );
-            });
-        }
-        );
 
     </script>
 </body>

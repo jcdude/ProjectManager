@@ -17,9 +17,9 @@ namespace ProjectManagerDAL.Entities
         public string Id { get; set; }
         public string UserId { get; set; }
         public string FolderId { get; set; }
-        public string DateCreated { get; set; }
+        public System.DateTime DateCreated { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
         public virtual Folder Folder { get; set; }
+        public virtual Folder Folder1 { get; set; }
     }
 }

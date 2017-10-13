@@ -18,10 +18,11 @@ namespace ProjectManagerDAL.Entities
         public Folder()
         {
             this.LinkFolderToTasks = new HashSet<LinkFolderToTask>();
-            this.LinkUserToFolders = new HashSet<LinkUserToFolder>();
             this.LinkFolderToFolders = new HashSet<LinkFolderToFolder>();
             this.LinkFolderToFolders1 = new HashSet<LinkFolderToFolder>();
             this.LinkFolderToProjects = new HashSet<LinkFolderToProject>();
+            this.LinkUserToFolders = new HashSet<LinkUserToFolder>();
+            this.LinkUserToFolders1 = new HashSet<LinkUserToFolder>();
         }
     
         public string Id { get; set; }
@@ -31,12 +32,14 @@ namespace ProjectManagerDAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LinkFolderToTask> LinkFolderToTasks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LinkUserToFolder> LinkUserToFolders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LinkFolderToFolder> LinkFolderToFolders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LinkFolderToFolder> LinkFolderToFolders1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LinkFolderToProject> LinkFolderToProjects { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LinkUserToFolder> LinkUserToFolders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LinkUserToFolder> LinkUserToFolders1 { get; set; }
     }
 }

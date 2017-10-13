@@ -4,5 +4,5 @@
 }
 @foreach (var item in Model)
 {
-    <li folderId="@item.Id"><a>@item.Description</a></li>
+    <li id="folder_@item.Id" folderId="@item.Id"><i class="icon-folder-open"></i><a>@item.Description</a></li>
 }

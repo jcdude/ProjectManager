@@ -36,7 +36,6 @@ namespace ProjectManagerDAL.Entities
         public virtual DbSet<LinkFolderToTask> LinkFolderToTasks { get; set; }
         public virtual DbSet<LinkProjectToProject> LinkProjectToProjects { get; set; }
         public virtual DbSet<LinkProjectToTask> LinkProjectToTasks { get; set; }
-        public virtual DbSet<LinkUserToFolder> LinkUserToFolders { get; set; }
         public virtual DbSet<LinkUserToTask> LinkUserToTasks { get; set; }
         public virtual DbSet<Priority> Priorities { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
@@ -46,5 +45,6 @@ namespace ProjectManagerDAL.Entities
         public virtual DbSet<LinkFolderToProject> LinkFolderToProjects { get; set; }
         public virtual DbSet<LinkProjectToFolder> LinkProjectToFolders { get; set; }
         public virtual DbSet<LinkUserToProject> LinkUserToProjects { get; set; }
+        public virtual DbSet<LinkUserToFolder> LinkUserToFolders { get; set; }
     }
 }
